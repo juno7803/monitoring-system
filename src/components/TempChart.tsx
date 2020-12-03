@@ -64,7 +64,7 @@ function TempChart({ t_list, ts_list }: ITempChart) {
     // chart.stroke = am4core.color('white');
 
     return () => chart.dispose();
-  }, []);
+  }, [t_list]);
 
   return (
     <>

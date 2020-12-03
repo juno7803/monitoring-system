@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table } from 'reactstrap';
+import tsToTime from '../util/tsToTime';
 
 interface IDataList {
   ts_list: number[];
@@ -8,15 +9,6 @@ interface IDataList {
 }
 
 function DataList({ ts_list, t_list, h_list }: IDataList) {
-  const tsToTime = (t: number) => {
-    let date = new Date(t*1000);
-    let year = date.getFullYear();
-    let month = "0" + (date.getMonth()+1);
-    let day = "0" + date.getDate();
-    let hour = "0" + date.getHours();
-    let minute = "0" + date.getMinutes();
-    return year + "-" + month.substr(-2) + "-" + day.substr(-2) + " " + hour.substr(-2) + ":" + minute.substr(-2);
-  }
 
   return (
     <div className="d-flex">

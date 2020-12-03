@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 // Redux Thunk 함수
-import {getDataThunk} from '../store/action/dataReducer';
+import { getDataThunk } from '../store/action/dataReducer';
 
 // 최기프
 import HumidChartContainer from '../containers/HumidChartContainer';
@@ -14,11 +14,7 @@ import Image from '../components/Image';
 import Introduce from '../components/Introduce';
 
 // ReactStrap
-import {
-  Container,
-  Col,
-  Row,
-} from 'reactstrap';
+import { Container, Col, Row } from 'reactstrap';
 
 function Home() {
   const dispatch = useDispatch();
@@ -29,6 +25,14 @@ function Home() {
       dispatch(getDataThunk());
     };
     getApis();
+
+    const homeInter = setInterval(() => {
+      getApis();
+    }, 10000);
+
+    return () => {
+      clearInterval(homeInter);
+    };
   }, []);
 
   return (
@@ -37,23 +41,37 @@ function Home() {
         <Col md="4">
           <Card
             desc="Service Introduce"
-            title="&nbsp;KHU-NOIN"
+            title="&nbsp;KHU-CARE"
             icon="tim-icons icon-badge"
-            component={<Introduce/>}
-          />
-          <Card
-            desc="Current Photos"
-            title="&nbsp;모듈 촬영 사진"
-            icon="tim-icons icon-image-02"
-            component={<Image />}
+            component={<Introduce />}
           />
         </Col>
         <Col md="4">
           <Card
             desc="Current Temperature"
             // title="현재 온도 : 26°C"
-            component={<Temperature/>}
+            component={<Temperature />}
           />
+        </Col>
+        <Col md="4">
+          {/* 과제용 와이어 프레임을 위해 하드코딩 하여 만든 카드 -정산 내역 & 시설 관리*/}
+          <Card
+            desc="Current Humidity"
+            // title="현재 습도"
+            component={<Humid />}
+          />
+        </Col>
+      </Row>
+      <Row>
+        <Col md="4">
+          <Card
+            desc="Current Photos"
+            title="&nbsp;모듈 촬영 사진"
+            icon="tim-icons icon-image-02"
+            component={<Image />}            
+          />
+        </Col>
+        <Col md="4">
           <Card
             desc="Temperature Chart"
             title="&nbsp;실시간 온도 차트"
@@ -62,12 +80,6 @@ function Home() {
           />
         </Col>
         <Col md="4">
-          {/* 과제용 와이어 프레임을 위해 하드코딩 하여 만든 카드 -정산 내역 & 시설 관리*/}
-          <Card
-            desc="Current Humidity"
-            // title="현재 습도"
-            component={<Humid/>}
-          />
           <Card
             desc="Exact Calculation"
             title="&nbsp;실시간 습도 차트"

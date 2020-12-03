@@ -61,7 +61,7 @@ function HumidChart({h_list, ts_list}: IHumidChart) {
     chart.cursor.xAxis = dateAxis;
 
     return () => chart.dispose();
-  }, []);
+  }, [h_list]);
 
   return (
     <div

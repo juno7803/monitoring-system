@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {useSelector} from 'react-redux';
 import TempChart from '../components/TempChart';
 import { RootState } from '../store';
 
 function TempChartContainer(){
+
     const data = useSelector((state:RootState) => state.dataReducer.data);
+    
     return (
         <>
             {data !==null && (

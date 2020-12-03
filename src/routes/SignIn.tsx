@@ -45,7 +45,7 @@ function SignIn({ history }: any) {
       <Container>
         <Card>
           <CardHeader>
-            <h4 className="title">KHU-NOIN 로그인</h4>
+            <h4 className="title">KHU-CARE 로그인</h4>
           </CardHeader>
           <CardBody className="d-flex flex-column align-items-center">
             <br />

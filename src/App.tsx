@@ -27,7 +27,7 @@ function App (){
             <div className="wrapper">
                 <div className="main-panel">
                     <AdminNavbar
-                        brandText = "KHU-NOIN"
+                        brandText = "KHU-CARE"
                         toggleSidebar = {true}
                         sidebarOpened = {true}
                     />
