@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import khuLogo from '../assets/img/khu-logo.png';
 
 import {
@@ -15,29 +15,15 @@ import {
 
 function SignIn({ history }: any) {
   const [form, setForm] = useState({ id: '', password: '' });
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
     });
   };
-
-  // userdata API 를 받아오는 thunk 함수 - 비동기 처리를 위해 Promise로 만듦
-  // const getUserApi = () => {
-  //   return new Promise((resolve) => {
-  //     resolve(dispatch(getUserThunk(form)));
-  //   });
-  // };
-
   const onClick = async () => {
-    // await getUserApi();
-    // token이 저장되길 기다린 후
-    const token = JSON.parse(localStorage.getItem('userInfo') || '{}').token;
-    // 토큰 확인
-    if (token) {
-      history.push('/');
-    }
+    history.push('/');
   };
 
   return (

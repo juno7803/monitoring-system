@@ -26,7 +26,7 @@ const store = createStore(rootReducer,composeWithDevTools(
 ReactDOM.render(
   <Provider store={store}>
     <Router history={hist}>
-      {/* <Base history={hist}/> */}
+      <Base history={hist}/>
       <App />
     </Router>
   </Provider>,
