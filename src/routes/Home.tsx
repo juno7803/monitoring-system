@@ -11,6 +11,7 @@ import Card from '../components/Common/Card';
 import Humid from '../components/Humid';
 import Temperature from '../components/Temperature';
 import Image from '../components/Image';
+import Introduce from '../components/Introduce';
 
 // ReactStrap
 import {
@@ -34,13 +35,12 @@ function Home() {
     <Container>
       <Row>
         <Col md="4">
-          {/* 발전소 정보 */}
           <Card
-            desc="USER information"
-            title="&nbsp;유저 정보"
+            desc="Service Introduce"
+            title="&nbsp;KHU-NOIN"
             icon="tim-icons icon-badge"
+            component={<Introduce/>}
           />
-          {/* 발전 상태 */}
           <Card
             desc="Current Photos"
             title="&nbsp;모듈 촬영 사진"

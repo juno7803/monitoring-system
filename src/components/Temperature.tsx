@@ -9,6 +9,7 @@ function Temperature(){
         <>
             {data !== null && (
                 <>
+                <i className="fas fa-thermometer-half"></i>
                     <CardText tag="h3">
                         현재 온도 : {Math.ceil(data.data.last_t)}℃
                     </CardText>
